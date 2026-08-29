@@ -14,7 +14,210 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      diet_entries: {
+        Row: {
+          amount: number
+          created_at: string
+          entry_date: string
+          id: string
+          kcal: number
+          mode: string
+          name: string
+          protein: number
+        }
+        Insert: {
+          amount?: number
+          created_at?: string
+          entry_date: string
+          id?: string
+          kcal?: number
+          mode?: string
+          name: string
+          protein?: number
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          entry_date?: string
+          id?: string
+          kcal?: number
+          mode?: string
+          name?: string
+          protein?: number
+        }
+        Relationships: []
+      }
+      diet_templates: {
+        Row: {
+          created_at: string
+          default_amount: number | null
+          id: string
+          kcal_per_unit: number
+          mode: string
+          name: string
+          protein_per_unit: number
+        }
+        Insert: {
+          created_at?: string
+          default_amount?: number | null
+          id?: string
+          kcal_per_unit?: number
+          mode?: string
+          name: string
+          protein_per_unit?: number
+        }
+        Update: {
+          created_at?: string
+          default_amount?: number | null
+          id?: string
+          kcal_per_unit?: number
+          mode?: string
+          name?: string
+          protein_per_unit?: number
+        }
+        Relationships: []
+      }
+      habit_entries: {
+        Row: {
+          created_at: string
+          entry_date: string
+          id: string
+          kind: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          entry_date: string
+          id?: string
+          kind?: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          entry_date?: string
+          id?: string
+          kind?: string
+          name?: string
+        }
+        Relationships: []
+      }
+      habit_templates: {
+        Row: {
+          created_at: string
+          id: string
+          kind: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          kind?: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          kind?: string
+          name?: string
+        }
+        Relationships: []
+      }
+      settings: {
+        Row: {
+          goal: string
+          id: number
+          maintenance_kcal: number
+          start_weight: number
+          target_kcal: number
+          target_protein: number
+          updated_at: string
+        }
+        Insert: {
+          goal?: string
+          id?: number
+          maintenance_kcal?: number
+          start_weight?: number
+          target_kcal?: number
+          target_protein?: number
+          updated_at?: string
+        }
+        Update: {
+          goal?: string
+          id?: number
+          maintenance_kcal?: number
+          start_weight?: number
+          target_kcal?: number
+          target_protein?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      step_logs: {
+        Row: {
+          entry_date: string
+          steps: number
+        }
+        Insert: {
+          entry_date: string
+          steps?: number
+        }
+        Update: {
+          entry_date?: string
+          steps?: number
+        }
+        Relationships: []
+      }
+      study_entries: {
+        Row: {
+          created_at: string
+          entry_date: string
+          hours: number
+          id: string
+          name: string
+          weight: number
+        }
+        Insert: {
+          created_at?: string
+          entry_date: string
+          hours?: number
+          id?: string
+          name: string
+          weight?: number
+        }
+        Update: {
+          created_at?: string
+          entry_date?: string
+          hours?: number
+          id?: string
+          name?: string
+          weight?: number
+        }
+        Relationships: []
+      }
+      study_templates: {
+        Row: {
+          created_at: string
+          default_hours: number | null
+          id: string
+          name: string
+          weight: number
+        }
+        Insert: {
+          created_at?: string
+          default_hours?: number | null
+          id?: string
+          name: string
+          weight?: number
+        }
+        Update: {
+          created_at?: string
+          default_hours?: number | null
+          id?: string
+          name?: string
+          weight?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
