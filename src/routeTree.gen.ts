@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DietRouteImport } from './routes/diet'
 import { Route as HabitRouteImport } from './routes/habit'
+import { Route as StatsRouteImport } from './routes/stats'
 import { Route as StudyRouteImport } from './routes/study'
 
 const IndexRoute = IndexRouteImport.update({
@@ -29,6 +30,11 @@ const HabitRoute = HabitRouteImport.update({
   path: '/habit',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StatsRoute = StatsRouteImport.update({
+  id: '/stats',
+  path: '/stats',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StudyRoute = StudyRouteImport.update({
   id: '/study',
   path: '/study',
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/diet': typeof DietRoute
   '/habit': typeof HabitRoute
+  '/stats': typeof StatsRoute
   '/study': typeof StudyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/diet': typeof DietRoute
   '/habit': typeof HabitRoute
+  '/stats': typeof StatsRoute
   '/study': typeof StudyRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,22 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/diet': typeof DietRoute
   '/habit': typeof HabitRoute
+  '/stats': typeof StatsRoute
   '/study': typeof StudyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/diet' | '/habit' | '/study'
+  fullPaths: '/' | '/diet' | '/habit' | '/stats' | '/study'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/diet' | '/habit' | '/study'
-  id: '__root__' | '/' | '/diet' | '/habit' | '/study'
+  to: '/' | '/diet' | '/habit' | '/stats' | '/study'
+  id: '__root__' | '/' | '/diet' | '/habit' | '/stats' | '/study'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DietRoute: typeof DietRoute
   HabitRoute: typeof HabitRoute
+  StatsRoute: typeof StatsRoute
   StudyRoute: typeof StudyRoute
 }
 
@@ -92,6 +102,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HabitRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/stats': {
+      id: '/stats'
+      path: '/stats'
+      fullPath: '/stats'
+      preLoaderRoute: typeof StatsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/study': {
       id: '/study'
       path: '/study'
@@ -106,6 +123,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DietRoute: DietRoute,
   HabitRoute: HabitRoute,
+  StatsRoute: StatsRoute,
   StudyRoute: StudyRoute,
 }
 export const routeTree = rootRouteImport
